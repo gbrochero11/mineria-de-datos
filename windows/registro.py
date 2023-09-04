@@ -145,15 +145,13 @@ class Ui_Registro(object):
 
         dataSet = DataSet(entidad, fallecidos, tramo, nombre,
                           latitud, longitud, pr, municipio, departamento)
-        try:
-            isOk = DataSETRepository().register(dataSet)
-            if(isOk == True):
-                self.showAlert("Registro guardado exitosamente.")
-                self.cleanField()
-            else:
-                self.showAlert("Registro no guardado.")
-        except:
-            self.showAlert("Ha ocurrido un error.")
+        isOk = DataSETRepository().register(dataSet)
+        if(isOk == True):
+            self.showAlert("Registro guardado exitosamente.")
+            self.cleanField()
+        else:
+            self.showAlert("Registro no guardado.")
+
 
 
     def isInValidField(self, text):
