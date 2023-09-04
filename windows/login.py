@@ -11,7 +11,7 @@ from core.UserRepository import UserRepository
 from windows.home import *
 
 
-class Ui_loginWindow(QtWidgets.QWidget):
+class Ui_loginWindow(object):
     def __init__(self):
         super().__init__()
 

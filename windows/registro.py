@@ -161,14 +161,14 @@ class Ui_Registro(object):
         self.lblError.setText(text)
         
     def cleanField(self):
-        self.txtFallecidos.text("")
-        self.txtTramo.text("")
-        self.txtNombre.text("")
-        self.txtLatitud.text("")
-        self.txtLongitud.text("")
-        self.txtPR.text("")
-        self.txtMunicipio.text("")
-        self.txtDepartamento.text("")
+        self.txtFallecidos.clear()
+        self.txtTramo.clear()
+        self.txtNombre.clear()
+        self.txtLatitud.clear()
+        self.txtLongitud.clear()
+        self.txtPR.clear()
+        self.txtMunicipio.clear()
+        self.txtDepartamento.clear()
         
 
 

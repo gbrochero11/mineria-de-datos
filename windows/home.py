@@ -7,9 +7,10 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from windows.login import *
 from windows.acercaDe import Ui_wndAcercaDe
 from windows.registro import Ui_Registro
+from windows.registros import Ui_Form
+from windows.login import *
 
 
 class Ui_HomeWindow(QtWidgets.QWidget):
@@ -66,6 +67,7 @@ class Ui_HomeWindow(QtWidgets.QWidget):
         self.actionInsertar.triggered.connect(self.gotoRegister)
         self.actionVisualizar = QtGui.QAction(parent=HomeWindow)
         self.actionVisualizar.setObjectName("actionVisualizar")
+        self.actionVisualizar.triggered.connect(self.gotoRegisters)
         self.actionAcerca_de = QtGui.QAction(parent=HomeWindow)
         self.actionAcerca_de.setObjectName("actionAcerca_de")
         self.actionAcerca_de.triggered.connect(self.gotoAbout)
@@ -101,6 +103,12 @@ class Ui_HomeWindow(QtWidgets.QWidget):
     def gotoRegister(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Registro()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        
+    def gotoRegisters(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_Form()
         self.ui.setupUi(self.window)
         self.window.show()
         

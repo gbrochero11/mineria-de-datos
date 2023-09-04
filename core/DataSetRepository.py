@@ -18,3 +18,25 @@ class DataSETRepository(object):
         cursor.close()
         cnx.close()
         return True
+    
+    def findAll(self):
+        sql = ("select ENTIDAD, Fallecidos, Tramo, Nombre, Latitud, Longitud, Municipio, Departamento from sectores_criticos_de_siniestralidad_vial_csv scdsvc")
+        cnx = self.mySqlConnector.connect()
+        cursor = cnx.cursor()
+        cursor.execute(sql)
+        result_set = cursor.fetchall()
+        data = []
+        data.append(["Entidad", "Fallecidos", "Tramo", "Nombre", "Latitud", "Longitud", "Municipio", "Departamento"])
+        for row in result_set:
+            rowData = []
+            rowData.append(row[0])
+            rowData.append(row[1])
+            rowData.append(row[2])
+            rowData.append(row[3])
+            rowData.append(row[4])
+            rowData.append(row[5])
+            rowData.append(row[6])
+            data.append(rowData)
+        cursor.close()
+        cnx.close()
+        return data
