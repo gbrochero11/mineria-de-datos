@@ -19,6 +19,7 @@ class Ui_HomeWindow(QtWidgets.QWidget):
         self.userData = userData
 
     def setupUi(self, HomeWindow):
+        self.homeWindow = HomeWindow
         HomeWindow.setObjectName("HomeWindow")
         HomeWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(parent=HomeWindow)
@@ -89,10 +90,12 @@ class Ui_HomeWindow(QtWidgets.QWidget):
         self.actionAcerca_de.setText(_translate("HomeWindow", "Acerca de"))
 
     def closeSession(self):
+        from windows.login import Ui_loginWindow
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_loginWindow()
         self.ui.setupUi(self.window)
         self.window.show()
+        self.homeWindow.close()
         
     def gotoAbout(self):
         self.window = QtWidgets.QMainWindow()
